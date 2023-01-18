@@ -28,6 +28,11 @@ $config = [
         'db' => $db,
     ],
     'params' => $params,
+        'controllerMap' => [
+            'migration' => [
+                'class' => 'bizley\migration\controllers\MigrationController',
+            ],
+        ],
     /*
     'controllerMap' => [
         'fixture' => [ // Fixture generation command line.
