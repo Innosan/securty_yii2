@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use Yii;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
@@ -19,13 +20,6 @@ use yii\web\IdentityInterface;
  */
 class User extends ActiveRecord implements IdentityInterface
 {
-    public $id;
-    public $fio;
-    public $login;
-    public $email;
-    public $password;
-    public $admin;
-
     /**
      * {@inheritdoc}
      */
@@ -76,5 +70,15 @@ class User extends ActiveRecord implements IdentityInterface
     public function validateAuthKey($authKey)
     {
         // TODO: Implement validateAuthKey() method.
+    }
+
+    public function validatePassword($password): bool
+    {
+        return Yii::$app->security->validatePassword($password, $this->password);
+    }
+
+    public function setPassword(string $password)
+    {
+        $this->password = Yii::$app->security->generatePasswordHash($password);
     }
 }

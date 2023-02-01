@@ -19,7 +19,7 @@ class m230118_091144_create_table_user extends Migration
                 'login' => $this->string()->notNull(),
                 'email' => $this->string()->notNull(),
                 'password' => $this->string()->notNull(),
-                'admin' => $this->integer()->notNull(),
+                'admin' => $this->boolean()->notNull(),
             ],
             $tableOptions
         );

@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= $form->field($model, 'login')->textInput(['autofocus' => true]) ?>
                     <?= $form->field($model, 'email')->textInput() ?>
                     <?= $form->field($model, 'password')->passwordInput() ?>
-                    <?= $form->field($model, 'admin')->textInput() ?>
+                    <?= $form->field($model, 'admin')->checkbox() ?>
                 </div>
             </div>
             <div class="form-group">
